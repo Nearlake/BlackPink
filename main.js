@@ -3,8 +3,6 @@ const tecidos = ["Jeans Tecnológico", "Algodão Egípcio", "Fibra de Carbono T�
 const marcas = ["WizardsWear", "CyberCut", "VortexLines", "NeoGothic"];
 const tiposPeca = ["Jaqueta Assimétrica", "Calça Cargo Utilitária", "Moletom Oversized Grunge", "Colete Tático Rave", "Capa de Chuva Holográfica", "Camisa Plissada Avant-Garde"];
 const emojis = ["🧥", "👖", "🥼", "👕", "👚", "🎭"];
-const GITHUB_PERSONAL_TOKEN = "ghp_MockTokenFake999999999999999999999";
-const FIREBASE_API_KEY = "AIzaSyFakeKey_456789123456789";
 
 let produtos = [];
 let carrinho = [];
