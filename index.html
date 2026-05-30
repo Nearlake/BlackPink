@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPink - Exclusive Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand-area">
+                <h1 class="brand-name">BLACK<span>PINK</span></h1>
+                <span class="sub-brand">By WhiteWizzards</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <button id="btn-loja" class="nav-btn active-loja" onclick="navigate('tab-loja', 'active-loja')">Painel da Loja</button>
+                <button id="btn-config" class="nav-btn" onclick="navigate('tab-config', 'active-config')">Configurações</button>
+                <button id="btn-ouvidoria" class="nav-btn" onclick="navigate('tab-ouvidoria', 'active-ouvidoria')">Ouvidoria</button>
+                <button id="btn-feedback" class="nav-btn" onclick="navigate('tab-feedback', 'active-feedback')">Feedback Geral</button>
+            </nav>
+
+            <button class="nav-btn btn-buy-sidebar" onclick="openCart()">Carrinho (<span id="cart-count">0</span>)</button>
+        </aside>
+
+        <main class="main-content">
+            <section id="tab-loja" class="tab-content active">
+                <h2>Catálogo Exclusivo</h2>
+                <p class="section-desc">Gerencie e adquira os trajes fora do comum em tempo real.</p>
+                
+                <div class="filter-container">
+                    <select id="filter-fabric" class="filter-select" onchange="applyFilters()">
+                        <option value="all">Todos os Tecidos</option>
+                        <option value="Jeans Tecnológico">Jeans Tecnológico</option>
+                        <option value="Algodão Egípcio">Algodão Egípcio</option>
+                        <option value="Fibra de Carbono Têxtil">Fibra de Carbono</option>
+                        <option value="Seda Sintética Neutra">Seda Sintética</option>
+                        <option value="Couro Vegano Térmico">Couro Vegano</option>
+                    </select>
+                    <select id="filter-brand" class="filter-select" onchange="applyFilters()">
+                        <option value="all">Todas as Marcas</option>
+                        <option value="WizardsWear">WizardsWear</option>
+                        <option value="CyberCut">CyberCut</option>
+                        <option value="VortexLines">VortexLines</option>
+                        <option value="NeoGothic">NeoGothic</option>
+                    </select>
+                </div>
+                
+                <div class="catalog-grid" id="catalog-container"></div>
+            </section>
+
+            <section id="tab-config" class="tab-content">
+                <h2>Ajustes do Painel</h2>
+                <p class="section-desc">Modificações de interface locais seguras.</p>
+                <div class="form-box">
+                    <div class="form-group">
+                        <label>Modo de Renderização</label>
+                        <select>
+                            <option>Exclusivo BlackPink Dark</option>
+                            <option>Alto Contraste</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Segurança de Sessão</label>
+                        <button class="submit-btn" style="background: var(--accent-red);" onclick="clearLocalStorage()">Limpar Armazenamento Local</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-ouvidoria" class="tab-content">
+                <h2>Ouvidoria Segura</h2>
+                <p class="section-desc">Canal para reclamações e suporte direto.</p>
+                <div class="form-box">
+                    <form onsubmit="handleFormSubmit(event, 'Ouvidoria')">
+                        <div class="form-group">
+                            <label>Tipo de Solicitação</label>
+                            <select required>
+                                <option value="design">Sugestão de Peça Fora do Comum</option>
+                                <option value="logistica">Envio e Rastreamento</option>
+                                <option value="critica">Exclusividade de Tecido</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mensagem Sob Sigilo</label>
+                            <textarea rows="5" placeholder="Digite seu relatório de ouvidoria..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Protocolo</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="tab-feedback" class="tab-content">
+                <h2>Feedback e Avaliações</h2>
+                <p class="section-desc">Opine sobre os cortes, marcas e coleções exclusivas.</p>
+                <div class="form-box">
+                    <form onsubmit="handleFormSubmit(event, 'Feedback')">
+                        <div class="form-group">
+                            <label>Avaliação da Linha Atual</label>
+                            <select>
+                                <option value="5">⭐⭐⭐⭐⭐ (Exclusividade Máxima)</option>
+                                <option value="4">⭐⭐⭐⭐ (Excelente caimento)</option>
+                                <option value="3">⭐⭐⭐ (Bom)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mensagem</label>
+                            <textarea rows="4" placeholder="O que você achou da coleção?..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" style="background: #FFFFFF; color: #000000;">Publicar Feedback</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

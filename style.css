@@ -1,0 +1,306 @@
+:root {
+    --bg-main: #0B090F;         /* Fundo escuro com leve nuance roxa */
+    --bg-sidebar: #150F1C;      /* Lateral roxo escuro profundo */
+    --surface: #22162B;         /* Fundo dos cards e caixas */
+    --text-main: #FFFFFF;       /* Branco puro para textos e contrastes */
+    --text-muted: #D1C4E9;      /* Lilás claro para textos secundários */
+    --accent-pink: #FF4499;     /* Rosa Choque neon para a identidade */
+    --accent-red: #EF4444;      /* Vermelho vibrante */
+    --accent-purple: #7C3AED;   /* Roxo Neon */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Estrutura Dashboard Side-by-Side */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Barra Lateral Fixa */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 20px;
+    border-right: 1px solid rgba(255, 68, 153, 0.15);
+    flex-shrink: 0;
+}
+
+.brand-area {
+    margin-bottom: 35px;
+    padding-left: 10px;
+}
+
+.brand-name {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--text-main);
+}
+
+.brand-name span {
+    color: var(--accent-pink);
+    text-shadow: 0 0 12px rgba(255, 44, 153, 0.6);
+}
+
+.sub-brand {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+}
+
+/* Botões de Navegação */
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    border-left: 4px solid transparent;
+}
+
+.nav-btn:hover {
+    background-color: rgba(124, 58, 237, 0.12);
+    color: var(--text-main);
+    border-left-color: var(--accent-purple);
+}
+
+/* Classes de Ativação (Mistura Dinâmica das Cores) */
+.nav-btn.active-loja { background-color: var(--accent-pink); color: #000000; border-left-color: #FFFFFF; }
+.nav-btn.active-config { background-color: var(--accent-purple); color: #FFFFFF; border-left-color: var(--accent-pink); }
+.nav-btn.active-ouvidoria { background-color: var(--accent-red); color: #FFFFFF; border-left-color: #FFFFFF; }
+.nav-btn.active-feedback { background-color: #FFFFFF; color: #000000; border-left-color: var(--accent-purple); }
+
+.btn-buy-sidebar {
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-red));
+    color: #FFFFFF;
+    text-align: center;
+    border-left: none !important;
+    box-shadow: 0 4px 15px rgba(255, 44, 153, 0.3);
+}
+
+.btn-buy-sidebar:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* Painel de Exibição Principal */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: var(--bg-main);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    border-bottom: 2px solid var(--accent-pink);
+    padding-bottom: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    margin-top: 8px;
+}
+
+/* Filtros */
+.filter-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filter-select {
+    background-color: var(--surface);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 18px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Grid do Catálogo */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-pink);
+    box-shadow: 0 5px 15px rgba(255, 44, 153, 0.15);
+}
+
+.product-image-placeholder {
+    height: 240px;
+    background: linear-gradient(135deg, #2A1B35, #1A1021);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.product-image-placeholder .icon {
+    font-size: 3rem;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-brand {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--accent-pink);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.product-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.product-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.product-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.btn-add-cart {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.btn-add-cart:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Formulários */
+.form-box {
+    max-width: 650px;
+    background-color: var(--surface);
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    background-color: var(--bg-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    padding: 14px;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--accent-purple);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
+    color: #FFFFFF;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
